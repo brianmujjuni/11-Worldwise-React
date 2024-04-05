@@ -34,6 +34,17 @@ function Form() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!cityName || !date) return;
+    const newCity = {
+      cityName,
+      country,
+      emoji,
+      date,
+      notes,
+      position: { lat, lng },
+    };
+
+    
   }
 
   useEffect(() => {
@@ -78,6 +89,7 @@ function Form() {
       <div className={styles.row}>
         <label htmlFor="date">When did you go to {cityName}?</label>
         <ReactDatePicker
+          id="date"
           onChange={(date) => setDate(date)}
           selected={date}
           dateFormat="dd/MM/yyyy"
