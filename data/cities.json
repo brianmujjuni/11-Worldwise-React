@@ -47,30 +47,6 @@
         "lng": "-2.13128394200588"
       },
       "id": 98443198
-    },
-    {
-      "cityName": "Kampala",
-      "country": "Uganda",
-      "emoji": "🇪🇸",
-      "date": "2023-04-03T07:47:59.202Z",
-      "notes": "",
-      "position": {
-        "lat": "52.736291655910925",
-        "lng": "-7.910156250000001"
-      },
-      "id": 9844316780
-    },
-    {
-      "id": "f6fe",
-      "cityName": "Wakiso",
-      "country": "Uganda",
-      "emoji": "🇺🇬",
-      "date": "2024-04-05T08:49:37.619Z",
-      "notes": "all was good with us",
-      "position": {
-        "lat": "0.39275815448371715",
-        "lng": "32.53875732421876"
-      }
     }
   ]
 }
