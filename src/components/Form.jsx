@@ -33,7 +33,9 @@ function Form() {
   const [emoji, setEmoji] = useState();
   const [geocodingError, setGeocodingError] = useState("");
   const { createCity } = useCities();
-  function handleSubmit(e) {
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !date) return;
     const newCity = {
@@ -44,7 +46,8 @@ function Form() {
       notes,
       position: { lat, lng },
     };
-    createCity(newCity);
+    await createCity(newCity);
+    navigate("/app");
   }
 
   useEffect(() => {
