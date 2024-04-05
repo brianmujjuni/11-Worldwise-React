@@ -26,17 +26,25 @@ function Form() {
   const [notes, setNotes] = useState("");
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [emoji, setEmoji] = useState();
+  const [geocodingError, setGeocodingError] = useState("");
 
   useEffect(() => {
     async function fetchCityData() {
       try {
         setIsLoadingGeocoding(true);
+        setGeocodingError("");
         const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
         const data = await res.json();
+        if (!data.countryCode)
+          throw new Error(
+            "That doesn't seem to be a city.Click somewhere else"
+          );
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName);
         setEmoji(convertToEmoji(data.countryCode));
       } catch (error) {
+        setGeocodingError(error.message);
+      } finally {
         setIsLoadingGeocoding(false);
       }
     }
