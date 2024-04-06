@@ -12,7 +12,7 @@ function reducer(state, action) {
     case "logout":
       return { ...state, user: null, isAuthenticated: false };
     default:
-        throw new Error("Unknown action")
+      throw new Error("Unknown action");
   }
 }
 
@@ -26,7 +26,11 @@ function AuthProvider({ children }) {
 
   function logout() {}
 
-  return <AuthContext.Provider>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 function useAuth() {
